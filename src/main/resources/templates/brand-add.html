@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/head::head"></head>
+
+<body>
+
+<div th:replace="fragments/navbar :: navbar">
+    Navbar
+</div>
+<div class="container">
+    <h2 class="text-center text-white">Add a Brand</h2>
+    <form   th:object="${BrandDto}"
+            th:method="post"
+            th:action="@{/brands/add}"
+          class="main-form mx-auto col-md-8 d-flex flex-column justify-content-center">
+        <div class="row">
+            <div class="form-group col-md-6 mb-3">
+                <label class="text-white font-weight-bold" for="name">Name</label>
+                <input th:field="*{name}"
+                       th:errorclass="is-invlaid"
+                        id="name"
+                       name="name"
+                       type="text"
+                       class="form-control"
+                       placeholder="Add brand name">
+                <p class="errors alert alert-danger invalid-feedback">
+                    Brand name is required.
+                </p>
+            </div>
+            <div class="form-group col-md-6 mb-3">
+                <label class="text-white font-weight-bold" for="imageUrl">Image URL</label>
+                <input  th:field="*{imageUrl}"
+                        th:errorclass="is-invalid"
+                       name="imageUrl"
+                       id="imageUrl" type="url" class="form-control"
+                       placeholder="Add image URL">
+                <p class="errors alert alert-danger invalid-feedback">
+                    Image URL is required.
+                </p>
+            </div>
+        </div>
+        <div style="text-align: center">
+            <label class="text-white font-weight-bold" for="description">Description</label>
+            <input  th:field="*{description}"
+                    th:errorclass="is-invalid"
+                    name="description"
+                   id="description" type="text" class="form-control"
+                   placeholder="Add description">
+            <p class="errors alert alert-danger invalid-feedback">
+                Brand description is required.
+            </p>
+        </div>
+        <div>
+            <div id="submit-brand-btn" style="text-align: center">
+                <input type="submit" class="btn btn-info btn-lg" value="Submit Brand"/>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+<div>
+    <footer></footer>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+
+<head th:replace="fragments/head::head"></head>
+
+
+<body>
+
+<div th:replace="fragments/navbar :: navbar">
+    Navbar
+</div>
+<div class="outlineText">
+    <h1 class="text-center text-white mt-5">Our Statistics!</h1>
+    <h3 class="text-center text-white mt-5">Brand requests: <th:block th:text="${stats.getBrandRequests()}"></th:block></h3>
+    <h3 class="text-center text-white mt-5">Clothes requests: <th:block th:text="${stats.getClothingRequests()}"></th:block></h3>
+    <h3 class="text-center text-white mt-5">Accessories requests: <th:block th:text="${stats.getAccessoryRequests()}"></th:block></h3>
+    <h3 class="text-center text-white mt-5">Shoes requests: <th:block th:text="${stats.getShoesRequests()}"></th:block></h3>
+    <h3 class="text-center text-white mt-5">Artists requests: <th:block th:text="${stats.getArtistRequests()}"></th:block></h3>
+    <h3 class="text-center text-white mt-5">Albums requests: <th:block th:text="${stats.getAlbumRequests()}"></th:block></h3>
+
+</div>
+
+<div>
+    <footer> </footer>
+</div>
+
+</body>
+</html>

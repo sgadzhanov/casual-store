@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="fragments/head::head"></head>
+
+
+<body>
+
+<div th:replace="fragments/navbar :: navbar">
+    Navbar
+</div>
+
+<div class="container-fluid">
+    <h2 class="text-center text-white mt-5">Details</h2>
+    <div class="offers row mx-auto d-flex flex-row justify-content-center" id="minimize">
+        <div    th:object="${shoeDetails}"
+                class="offer card col-sm-2 col-md-3  col-lg-4 m-1 p-0">
+            <div class="card-body pb-1">
+                <h5 class="card-title" th:text="*{name}">
+                    name</h5>
+            </div>
+            <div class="card-body pb-1">
+                <h5 th:text="*{description}"
+                    class="card-title">
+                    description</h5>
+            </div>
+            <div class="card-body">
+                <div class="row" >
+                    <th:block sec:authorize="hasRole('ADMIN')">
+                        <a class="btn btn-link"
+                           th:href="@{/shoes/{id}/edit(id=*{id})}">Update</a>
+                        <form th:action="@{/shoes/{id}/delete(id=*{id})}"
+                              th:method="delete">
+                            <input type="submit" class="btn btn-link" value="Delete"/>
+                        </form>
+                    </th:block>
+                </div>
+            </div>
+        </div>
+        <div    th:object="${shoeDetails}"
+                class="offer card col-sm-2 col-md-3  col-lg-4 m-1 p-0">
+            <img    th:src="*{imageUrl}"
+                    class="card-img-top"
+                    alt="Image">
+        </div>
+    </div>
+</div>
+
+<div>
+    <footer></footer>
+</div>
+
+</body>
+</html>
