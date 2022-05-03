@@ -2,7 +2,7 @@
 A portfolio web-project.
 
 A simple online shop for casual style products. 
-Added admin panel for where can be added products and brands.
+Added admin panel where can be added products and brands.
 
 Tech stack:
 -Spring Boot;
